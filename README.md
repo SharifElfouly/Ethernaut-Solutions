@@ -18,7 +18,7 @@ await contract.sendAllocation(await contract.owner());
 ## 3. Coinflip
 Don't rely on block number for any validation logic. A malicious user can calculate the solution to bypass your validation if both txns in the same block i.e. wrapped in the same function call.
 
-Note: For some reason, I can't seem to call these functions more than once in the same function call i.e. another function that calls one of these malicious functions multiple times in one function call.
+Note: For some reason, I can't seem to call these functions more than once in the same function call i.e. another function that calls one of these malicious functions multiple times in one function call. (This is because the contract saves the last block hash in `lastHash`, this is why you can only call it once per block)
 ``` 
 pragma solidity ^0.6.0;
 import "./CoinFlip.sol";
